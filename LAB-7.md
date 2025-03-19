@@ -1,3 +1,4 @@
+## LAB-7 Implement chown, chmod command with their options
 ## A) Implement chown, chmod command with their options.
 
 ### Step 1 - Open Linux and create a new file using the touch command.
