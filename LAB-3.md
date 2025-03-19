@@ -1,35 +1,37 @@
-## Problem: Use Vim,nano,to edit the editing_final_lab.txt file. Use the lab_file shell variable. Enter the visual mode of Vim. Remove the last seven characters from the first column on the first line. Preserve only the first four characters of the first column. 
+## LAB 3: Use Vim,nano, to edit the editing_final_lab.txt file. Use the lab_file shell variable. Enter the visual mode of Vim. Remove the last seven characters from the first column on the first line. Preserve only the first four characters of the first column.
+
 
 ### Step 1 - Create and Open the File in Nano or Vim
 
 ```
-nano lab3.txt
+nano anmol2.txt
 ```
 or
 
 ```
-vim lab3.txt
+vim anmol2.txt
 ```
+![Screenshot 2025-03-19 184443](https://github.com/user-attachments/assets/723c047d-173a-427a-a1d6-ecee42d62c05)
 
-![image](https://github.com/user-attachments/assets/c47185cf-f441-4ee9-8254-0e4ab5f9ad1d)
 
 ### Step 2 - Use a variable to store the file
 
 ```
-lab2="lab2.txt"
-nano $lab2
-vim $lab2
+anmol2="anmol2.txt"
+nano $anmol2
+vim $anmol2
 ```
 
-![image](https://github.com/user-attachments/assets/3e815a57-d9a9-4db8-aa27-7e7a0096cd9e)
+![Screenshot 2025-03-19 184454](https://github.com/user-attachments/assets/7b5d93e3-bcec-4aaf-bab3-85c80752b72a)
+
 
 ### Step 3 - Entering vim in visual mode, press v to enable visual mode. use arrow keys to select text and press d to delete it
 
 ```
-vim $lab2
+vim $anmol2
 ```
 
-![image](https://github.com/user-attachments/assets/8a44de7f-8b81-48ed-aa71-829473ed8e01)
+![Screenshot 2025-03-19 184510](https://github.com/user-attachments/assets/697f8fee-8af1-44b0-81e4-f1fc15ba22b6)
 
 ### Step 4 - type 07x in the vim editor to remove the last seven characters from the first column on the first line
 
