@@ -1,4 +1,4 @@
-## Problem: Implement ps, top, kill command with their options.Installing, updating, and removing software by apt-get command. 
+## LAB 5: Implement ps, top, kill command with their options. Installing, updating, and removing software by apt-get command.
 ---
 
 ## A) Process Management Commands
@@ -14,17 +14,20 @@ ps          # Lists processes for the current shell
 ```
 ps -e       # Lists all processes running on the system
 ```
-![image](https://github.com/user-attachments/assets/30de6971-823b-4bfc-a060-614e5db9b85b)
+
+![Screenshot 2025-03-19 183326](https://github.com/user-attachments/assets/6280f841-3750-4897-bbfc-90f82d2339d3)
 
 ```
 ps -f       # Shows processes in full-format listing (details like user, PID, etc.)
 ```
-![image](https://github.com/user-attachments/assets/b6eedd20-7d71-456f-be4c-6acbc7bb9843)
+![Screenshot 2025-03-19 183338](https://github.com/user-attachments/assets/905ae02b-2319-41f6-a6b4-5e7ff297c70a)
+
 
 ```
 ps aux      # Displays all processes with detailed information
 ```
-![image](https://github.com/user-attachments/assets/c467801e-55d1-4b87-9ccb-1ccf78176bd3)
+
+![Screenshot 2025-03-19 183345](https://github.com/user-attachments/assets/072c5c55-0f30-4b51-a459-5d438b8922bb)
 
 ```
 ps -ef | grep <process_name>  # Searches for a specific process
@@ -71,7 +74,7 @@ The `apt-get` command is used for managing software packages in Debian-based sys
 sudo apt-get update                  # Updates the list of available packages
 sudo apt-get install <package_name>  # Installs the specified package
 ```
-![image](https://github.com/user-attachments/assets/9349ec57-e189-41e3-a128-5f50b579f1d7)
+![Screenshot 2025-03-19 183353](https://github.com/user-attachments/assets/2f2c0596-1a8d-45b3-96e5-e90e54f6842e)
 
 ### 2. Updating Software with `apt-get`
 ```bash
