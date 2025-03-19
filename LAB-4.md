@@ -1,80 +1,132 @@
-# Lab 3 & 4: Using man Pages, Searching Commands, and Brace Expansion in Linux
+# LAB 4: Create the /home/consultants directory. Add write permission to the consultants group. Use the symbolic method for setting the appropriate permissions. Forbid others from accessing files in the /home/consultants directory. Use the octal method for setting the appropriate permissions. Change the default umask for the operator1 user. The new umask prohibits all access for users that are not in their group. Confirm that the umask is changed.
 
 ## Objective
-The objective of this lab is to explore Linux manual (`man`) pages, search for commands related to `ext4`, and understand the usage of **brace expansion** for generating discretionary strings of characters.
+The objective of this lab is to learn how to manage directories, set permissions using both symbolic and octal methods, and configure the `umask` for a user. You will create a directory, modify its permissions, and ensure proper access control for groups and users.
 
-## Commands Used
+---
 
-### Viewing the `gedit` man Page
-To view the manual page for `gedit`, use the `man` command:
+## Commands and Concepts Used
+
+### 1. Create the `/home/consultants` Directory
+To create the `/home/consultants` directory, use the `mkdir` command:
 ```bash
-man gedit
+sudo mkdir /home/consultants
 ```
+
+#### Screenshot:
+
+![Screenshot 2025-03-19 185015](https://github.com/user-attachments/assets/50d089e4-2e9c-4030-a7b7-ad3daa764447)
+
+---
+
+### 2. Add Write Permission to the `consultants` Group
+To add write permission to the `consultants` group, use the `chmod` command with the symbolic method:
+```bash
+sudo chmod g+w /home/consultants
+```
+
 #### Explanation:
-- The `man` command displays the manual page for a specified command.
-- `gedit` is a text editor for the GNOME desktop environment.
+- `g+w`: Adds write (`w`) permission for the group (`g`).
 
-### Searching for Commands Related to `ext4`
-To find commands related to `ext4` file-system tuning, use:
+#### Screenshot:
+
+![Screenshot 2025-03-19 185027](https://github.com/user-attachments/assets/1de00f63-2fe1-4411-8524-eb0c9312ef54)
+
+
+---
+
+### 3. Forbid Others from Accessing the Directory
+To forbid others from accessing the `/home/consultants` directory, use the `chmod` command with the octal method:
 ```bash
-man -k ext4
+sudo chmod 770 /home/consultants
 ```
+
 #### Explanation:
-- The `-k` option searches the manual page descriptions for the given keyword (`ext4`).
-- This helps in identifying relevant commands for tuning the ext4 file system.
+- `770`: 
+  - `7` (owner): Read, write, and execute permissions.
+  - `7` (group): Read, write, and execute permissions.
+  - `0` (others): No permissions.
 
-### Using Brace Expansion
-Brace expansion generates arbitrary strings of characters. It can be used for creating lists or sequences efficiently.
+#### Screenshot:
 
-#### Example 1: Generating a List of Strings
+![Screenshot 2025-03-19 185022](https://github.com/user-attachments/assets/af3b6662-a32d-4326-b119-c4f7237a5597)
+
+---
+
+### 4. Verify Permissions
+To verify the permissions of the `/home/consultants` directory, use the `ls -ld` command:
 ```bash
-echo file_{A,B,C}.txt
-```
-**Output:**
-```
-file_A.txt file_B.txt file_C.txt
+ls -ld /home/consultants
 ```
 
-#### Example 2: Generating a Sequence of Numbers
+#### Expected Output:
+```
+drwxrwx--- 2 root consultants 4096 Oct 10 12:34 /home/consultants
+```
+
+#### Screenshot:
+
+![Screenshot 2025-03-19 185049](https://github.com/user-attachments/assets/dcc0f306-3118-4620-b6bf-6dcf72fbcf87)
+
+---
+
+### 5. Change the Default `umask` for the `operator1` User
+The `umask` determines the default permissions for newly created files and directories. To change the `umask` for the `operator1` user, follow these steps:
+
+1. Switch to the `operator1` user:
+   ```bash
+   sudo su - operator1
+   ```
+
+2. Set the new `umask` value in the user's shell configuration file (e.g., `.bashrc`):
+   ```bash
+   echo "umask 007" >> ~/.bashrc
+   ```
+
+3. Apply the changes:
+   ```bash
+   source ~/.bashrc
+   ```
+
+4. Verify the new `umask`:
+   ```bash
+   umask
+   ```
+
+#### Explanation:
+- `umask 007`: 
+  - `0` (owner): Full permissions (default).
+  - `0` (group): Full permissions (default).
+  - `7` (others): No permissions.
+
+#### Screenshot:
+
+---
+
+### 6. Confirm the `umask` is Applied
+To confirm that the `umask` is applied, create a new file or directory and check its permissions:
 ```bash
-echo number_{1..5}
-```
-**Output:**
-```
-number_1 number_2 number_3 number_4 number_5
+touch testfile
+mkdir testdir
+ls -l
 ```
 
-#### Example 3: Combining Text with Brace Expansion
-```bash
-echo backup_{2024..2026}_v{1..3}.zip
-```
-**Output:**
-```
-backup_2024_v1.zip backup_2024_v2.zip backup_2024_v3.zip backup_2025_v1.zip backup_2025_v2.zip backup_2025_v3.zip backup_2026_v1.zip backup_2026_v2.zip backup_2026_v3.zip
-```
+#### Expected Output:
+- File permissions: `-rw-rw----`
+- Directory permissions: `drwxrwx---`
 
-## Verifying Command Execution
-After running the above commands, verify outputs using:
-```bash
-man gedit
-man -k ext4
-echo file_{A,B,C}.txt
-echo number_{1..5}z
-```
+#### Screenshot:
 
-### Screenshots
-Below are screenshots demonstrating the execution of commands
+![Screenshot 2025-03-19 185415](https://github.com/user-attachments/assets/6f4d8281-503b-474f-88b6-f8a6c263cb44)
 
-#### 1. Viewing the `gedit` man page:
-![gedit man page](screenshots/mangedit.png)
-![gedit man page](screenshots/gedit_man.png)
-
-#### 2. Searching for `ext4` commands:
-![Searching ext4](screenshots/search_ext4.png)
-
-#### 3. Using brace expansion:
-![Brace Expansion](screenshots/brace_expansion.png)
+---
 
 ## Conclusion
-In this lab, we explored `man` pages, searched for `ext4` commands using `man -k`, and demonstrated the power of **brace expansion** for generating multiple strings efficiently. These concepts help in effective command-line usage and scripting in Linux.
+In this lab, you learned how to:
+1. Create directories and manage their permissions using both symbolic and octal methods.
+2. Restrict access to specific groups and users.
+3. Configure the `umask` for a user to control default file and directory permissions.
 
+These skills are essential for managing file systems and ensuring proper access control in Linux environments.
+
+---
