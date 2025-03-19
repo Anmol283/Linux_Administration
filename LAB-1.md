@@ -1,4 +1,4 @@
-# Lab 1 & 2: File and Directory Management in Linux
+# Lab 1 File and Directory Management in Linux
 
 ## Objective
 The objective of this lab is to practice creating files and directories using the Linux command line. We will learn how to use the `touch` command for creating files and the `mkdir` command for creating multiple directories simultaneously.
