@@ -1,7 +1,7 @@
 # Linux_Administration
 
 ## 📡 Mission Control
-Welcome to *Linux_Administration*—a repository engineered to propel you through the galaxy of Linux system administration. Each lab is a meticulously crafted mission, complete with step-by-step directives and visual evidence of triumph.
+Welcome to *Linux_Administration*—a repository engineered to propel you through the galaxy of Linux system administration. Each lab is a meticulously crafted mission, complete with step-by-step directives and visual evidence of triumph!
 
 <div align="center">
   
