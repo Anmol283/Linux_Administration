@@ -1,4 +1,8 @@
-# Linux_Administration
+<h1 align="center">🐧 Linux_Administration</h1>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/5ed836f6-a975-400f-97c7-f40d610ca16c" width="150" alt="icons8-linux"/>
+</p>
 
 ## 📡 Mission Control
 Welcome to *Linux_Administration*—a repository engineered to propel you through the galaxy of Linux system administration. Each lab is a meticulously crafted mission, complete with step-by-step directives and visual evidence of triumph!
